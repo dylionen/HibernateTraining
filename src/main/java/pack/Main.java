@@ -15,9 +15,11 @@ public class Main {
         Session session = sessionFactory.getCurrentSession();
 
         try{
-            Student student = new Student("Asd","aa","asdas@wp.pl");
+            System.out.println("Writing object to database ...");
+            Student tempStudent = new Student("Adam" , "G." ,"iloveprogramming@java.com");
+
             session.beginTransaction();
-            session.save(student);
+            session.save(tempStudent);
             session.getTransaction().commit();
 
         }finally {
