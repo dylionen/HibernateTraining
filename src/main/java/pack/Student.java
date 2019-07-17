@@ -1,9 +1,16 @@
 package pack;
 
+import lombok.*;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "student")
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Student {
 
     @Id
@@ -20,6 +27,11 @@ public class Student {
     @Column(name = "email")
     private String email;
 
+    public Student(String firstName, String lastName, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        }
 
     public int getId() {
         return id;
@@ -51,25 +63,5 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Student(String firstName, String lastName, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        }
-
-    public Student(){
-
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                '}';
     }
 }
